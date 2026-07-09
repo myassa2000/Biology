@@ -545,7 +545,7 @@ function drawTree(){
         if(st===0){tx=x0-4;ty=nodeY[0]-8;}else{const ni=Math.min(st,n-2);tx=(nodeX(st-1)+nodeX(ni))/2;ty=nodeY[ni]-8;}}
       else if(blk&&blk.end==='top'){const en=blk.size-1;const ni=Math.min(en,n-2);tx=(nodeX(0)+nodeX(ni))/2;ty=nodeY[0]-8;}
       else ok=false;
-      if(오케이){ticks+=`<circle cx="${tx}" cy="${ty}" r="6.5" fill="#ffc94d"/><text x="${tx}" y="${ty+3}" font-family="Jua,sans-serif" font-size="8" fill="#7a5600" text-anchor="middle">✦</text>`+
+      if(ok){ticks+=`<circle cx="${tx}" cy="${ty}" r="6.5" fill="#ffc94d"/><text x="${tx}" y="${ty+3}" font-family="Jua,sans-serif" font-size="8" fill="#7a5600" text-anchor="middle">✦</text>`+
         `<text x="${tx+10}" y="${ty+3}" font-family="Gothic A1,sans-serif" font-weight="600" font-size="9" fill="#eaa62c">${c.short}</text>`;
         hasSyn=true;}
       else {pos.forEach(p=>putTerm(p,c.short,'#ff8f7a','#d1583f','↯'));hasConv=true;}
