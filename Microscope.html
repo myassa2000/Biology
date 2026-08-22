@@ -1118,11 +1118,12 @@ function measView(mag){
       const calibDone=MICRO.cal[mag].done;
       const calibVal=calibDone?MICRO.cal[mag].val:cfg.calib;
       let s="";
-      s+=`<rect x="40" y="60" width="1020" height="260" rx="10" fill="#FCFAF5" stroke="var(--rule)" stroke-width="1.4"/>`;
+      s+=`<rect x="40" y="60" width="${vbW-80}" height="260" rx="10" fill="#FCFAF5" stroke="var(--rule)" stroke-width="1.4"/>`;
       s+=`<text class="lbl-s" x="60" y="88">대물마이크로미터는 치우고, 이제 시료가 담긴 프레파라트를 재물대에 올려 관찰합니다.</text>`;
       s+=ocularTicks(x0,y,100,OPX);
       const cellX=x0+cfg.specLeft*OPX, cellW=(cfg.specRight-cfg.specLeft)*OPX;
-      s+=cellShape(cellX+cellW/2,y+70,cellW/2+6,34,"measCell");
+      // 세포의 양 끝을 specLeft/specRight 정수 눈금과 정확히 일치시킨다.
+      s+=cellShape(cellX+cellW/2,y+70,cellW/2,34,"measCell");
       // 측정 손잡이 (드래그)
       s+=`<g id="handleL" class="drag"><circle class="dhandle" cx="0" cy="${y-10}" r="15"/><path d="M0 ${y} l-11 -18 l22 0 z" fill="var(--red)" stroke="#7A1F16" stroke-width="1"/><line x1="0" y1="${y}" x2="0" y2="${y+120}" stroke="var(--red)" stroke-width="2" stroke-dasharray="4 4"/><rect x="-16" y="${y-24}" width="32" height="${150}" fill="transparent"/></g>`;
       s+=`<g id="handleR" class="drag"><circle class="dhandle" cx="0" cy="${y-10}" r="15"/><path d="M0 ${y} l-11 -18 l22 0 z" fill="var(--red)" stroke="#7A1F16" stroke-width="1"/><line x1="0" y1="${y}" x2="0" y2="${y+120}" stroke="var(--red)" stroke-width="2" stroke-dasharray="4 4"/><rect x="-16" y="${y-24}" width="32" height="${150}" fill="transparent"/></g>`;
